@@ -1,0 +1,331 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === ESTILOS BASE === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* === HEADER === */
+.header {
+  background-color: #003366;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.header .titulo {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-left: 0;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* === FOOTER === */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #ddd;
+  font-size: 0.9rem;
+  color: #003366;
+  margin-top: 2rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  flex: 1;
+}
+
+/* === INICIO / DASHBOARD === */
+main.menu {
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.opciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.bloques {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bloques:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+/* === FORMULARIOS Y CAMPOS === */
+input[type="text"],
+input[type="number"] {
+  padding: 8px;
+  margin: 6px 0;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0055aa;
+}
+
+/* === TABLAS === */
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #003366;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* === BOTONES DE ACCIÓN === */
+button.btn-delete {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button.btn-edit {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+/* === FORMULARIO DE EDICIÓN OCULTO === */
+.formulario {
+  display: none;
+}
+
+/* === SECCIÓN DE CRITERIOS === */
+main.criterios {
+  display: grid;
+  padding-left: 40px;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #ddd;
+  font-size: 0.9rem;
+  color: #003366;
+  margin-top: 2rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* === MODAL === */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-contenido {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.modal-contenido p {
+  margin-bottom: 1rem;
+}
+
+.modal button {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+}
+
+#modalConfirmacion button {
+  padding: 8px 12px;
+}
+
+/* Estilo general para todos los botones que no tienen clase */
+button {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0055aa;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.manual-container {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.manual-nav {
+  flex: 1;
+  max-width: 250px;
+  border-right: 1px solid #ccc;
+}
+
+.manual-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.manual-nav li {
+  margin-bottom: 10px;
+}
+
+.manual-nav a {
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+}
+
+.manual-nav a:hover {
+  text-decoration: underline;
+}
+
+.manual-content {
+  flex: 3;
+}
+
+.manual-content section {
+  margin-bottom: 2rem;
+}
+
+.manual-content h3 {
+  color: #003366;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.btn-github {
+  background-color: #333;
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.detalle-manual {
+  margin-top: 2rem;
+}
+
+.detalle-manual.oculto {
+  display: none;
+}
+
+.manual-nav button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 8px 0;
+  font-weight: bold;
+  color: #003366;
+  cursor: pointer;
+}
+
+.manual-nav button:hover {
+  text-decoration: underline;
+}

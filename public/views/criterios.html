@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Criterios de Evaluación</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="criterios">
+    <!-- SECCIÓN 1: Selección de clase -->
+    <section id="seccionSeleccionClase">
+      <h2>Selecciona una clase para gestionar sus criterios de evaluación</h2>
+      <input type="text" id="buscadorClase" placeholder="Buscar por nombre de clase...">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Materia</th>
+            <th>Grupo</th>
+            <th>Seleccionar</th>
+          </tr>
+        </thead>
+        <tbody id="tablaClases"></tbody>
+      </table>
+    </section>
+
+    <!-- SECCIÓN 2: Gestión de criterios -->
+    <section id="seccionCriterios" style="display: none;">
+      <h2>Clase seleccionada</h2>
+      <div id="infoClase"></div>
+
+      <h3>Agregar nuevo criterio</h3>
+      <form id="criterioForm">
+        <input type="text" name="nombre" placeholder="Nombre del criterio" required>
+        <input type="number" name="porcentaje" placeholder="Porcentaje" min="0" max="100" required>
+        <button type="submit">Agregar Criterio</button>
+      </form>
+
+      <h3>Lista de criterios registrados en la clase</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Porcentaje</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaCriterios"></tbody>
+      </table>
+
+      <form id="editarForm" class="formulario">
+        <input type="text" id="editNombre" placeholder="Nuevo nombre" required>
+        <input type="number" id="editPorcentaje" placeholder="Nuevo porcentaje" min="0" max="100" required>
+        <button type="submit">Guardar Cambios</button>
+      </form>
+
+      <button id="volver" style="margin-top: 2rem;">← Volver a selección de clase</button>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script type="module">
+    import { insertarComponentes } from '../scripts/headerFooter.js';
+    import '../scripts/criterios.js';
+    insertarComponentes();
+  </script>
+
+  <div id="modalSistema" class="modal oculto">
+    <div class="modal-contenido">
+      <p id="modalMensaje"></p>
+      <button id="cerrarModal">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="modalConfirmacion" class="modal oculto">
+    <div class="modal-contenido">
+      <p id="mensajeConfirmacion"></p>
+      <div style="margin-top: 1rem;">
+        <button id="btnConfirmar">Sí</button>
+        <button id="btnCancelarConfirmacion" style="margin-left: 1rem;">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

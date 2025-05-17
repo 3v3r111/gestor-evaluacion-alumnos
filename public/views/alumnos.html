@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Alumnos</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="alumnos">
+    <!-- SECCIÓN 1: Selección de clase -->
+    <section id="seccionSeleccionClase">
+      <h2>Selecciona una clase para gestionar a sus alumnos</h2>
+      <input type="text" id="buscadorClase" placeholder="Buscar por nombre de clase...">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Materia</th>
+            <th>Seleccionar</th>
+          </tr>
+        </thead>
+        <tbody id="tablaClases"></tbody>
+      </table>
+    </section>
+
+    <!-- SECCIÓN 2: Gestión de alumnos -->
+    <section id="seccionAlumnos" style="display: none;">
+      <h2>Clase seleccionada</h2>
+      <div id="infoClase"></div>
+
+      <h3>Registrar nuevo alumno</h3>
+      <form id="formAlumno">
+        <input type="text" name="nombre" placeholder="Nombre del alumno" required>
+        <input type="text" name="matricula" placeholder="Matrícula" required>
+        <input type="text" name="notas" placeholder="Notas (opcional)">
+        <button type="submit">Registrar Alumno</button>
+      </form>
+
+      <h3>Buscador</h3>
+
+      <input type="text" id="buscadorAlumnos" placeholder="Buscar por nombre, matrícula o notas..." style="margin: 1rem 0; width: 100%; max-width: 400px;">
+
+      <h3>Lista de alumnos en la clase</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Matrícula</th>
+            <th>Grupo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaAlumnos"></tbody>
+      </table>
+
+      <form id="formEditar" class="formulario">
+        <input type="text" id="editNombre" placeholder="Nuevo nombre" required>
+        <input type="text" id="editMatricula" placeholder="Nueva matrícula" required>
+        <input type="text" id="editNotas" placeholder="Notas (opcional)">
+        <button type="submit">Guardar cambios</button>
+      </form>
+
+      <button id="volver" style="margin-top: 2rem;">← Volver a selección de clase</button>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script type="module">
+    import { insertarComponentes } from '../scripts/headerFooter.js';
+    import '../scripts/alumnos.js';
+    insertarComponentes();
+  </script>
+
+  <div id="modalConfirmacion" class="modal oculto">
+    <div class="modal-contenido">
+      <p id="mensajeConfirmacion"></p>
+      <div style="margin-top: 1rem;">
+        <button id="btnConfirmar">Sí</button>
+        <button id="btnCancelarConfirmacion" style="margin-left: 1rem;">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalSistema" class="modal oculto">
+    <div class="modal-contenido">
+      <p id="modalMensaje"></p>
+      <button id="cerrarModal">Cerrar</button>
+    </div>
+  </div>
+
+</body>
+</html>

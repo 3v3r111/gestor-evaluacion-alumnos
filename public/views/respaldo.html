@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Respaldo y Transferencia</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="respaldo">
+    <h2>Respaldo y Transferencia de Datos</h2>
+
+    <!-- Exportar respaldo -->
+    <section>
+      <h3>Exportar respaldo</h3>
+      <p>Presiona el botón para generar un archivo con toda la información actual del sistema.</p>
+      <button id="btnExportar">📤 Exportar respaldo</button>
+    </section>
+
+    <!-- Importar respaldo -->
+    <section style="margin-top: 3rem;">
+      <h3>Importar respaldo</h3>
+      <p>Selecciona un archivo de respaldo previamente generado para restaurar los datos en esta instalación.</p>
+      <input type="file" id="inputArchivo" accept=".json">
+      <button id="btnImportar">📥 Importar respaldo</button>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script type="module">
+    import { insertarComponentes } from '../scripts/headerFooter.js';
+    import '../scripts/respaldo.js';
+    insertarComponentes();
+  </script>
+
+  <!-- Modal de sistema -->
+  <div id="modalSistema" class="modal oculto">
+    <div class="modal-contenido">
+      <p id="modalMensaje"></p>
+      <button id="cerrarModal">Cerrar</button>
+    </div>
+  </div>
+</body>
+</html>

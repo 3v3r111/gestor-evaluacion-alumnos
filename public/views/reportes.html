@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generación de Reportes</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="reportes">
+    <h2>Generación de Reportes por Clase</h2>
+
+    <!-- SELECCIÓN DE CLASE -->
+    <section id="seccionSeleccionClase">
+      <p>Selecciona una clase para generar su reporte detallado:</p>
+      <input type="text" id="buscadorClase" placeholder="Buscar clase por nombre...">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Materia</th>
+            <th>Grupo</th>
+            <th>Seleccionar</th>
+          </tr>
+        </thead>
+        <tbody id="tablaClases"></tbody>
+      </table>
+    </section>
+
+    <!-- SECCIÓN DE REPORTE -->
+    <section id="seccionReporte" style="display: none;">
+      <div id="contenidoReporte">
+        <!-- Aquí se genera dinámicamente el contenido del reporte -->
+      </div>
+
+      <button id="btnDescargarPDF">📄 Descargar Reporte en PDF</button>
+      <button id="btnVolver">← Volver a selección de clase</button>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script type="module">
+    import { insertarComponentes } from '../scripts/headerFooter.js';
+    import '../scripts/reportes.js';
+    insertarComponentes();
+  </script>
+
+  <!-- Modal de mensajes -->
+  <div id="modalSistema" class="modal oculto">
+    <div class="modal-contenido">
+      <p id="modalMensaje"></p>
+      <button id="cerrarModal">Cerrar</button>
+    </div>
+  </div>
+</body>
+</html>

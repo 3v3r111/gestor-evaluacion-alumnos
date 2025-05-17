@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Calificaciones</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="calificaciones">
+    <!-- SECCIÓN 1: Selección de clase -->
+    <section id="seccionSeleccionClase">
+      <h2>Selecciona una clase</h2>
+      <input type="text" id="buscadorClase" placeholder="Buscar por nombre de clase...">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Materia</th>
+            <th>Grupo</th>
+            <th>Seleccionar</th>
+          </tr>
+        </thead>
+        <tbody id="tablaClases"></tbody>
+      </table>
+    </section>
+
+    <!-- SECCIÓN 2: Lista de alumnos de la clase -->
+    <section id="seccionAlumnos" style="display: none;">
+      <h2>Clase seleccionada</h2>
+      <div id="infoClase"></div>
+
+      <h3>Selecciona un alumno</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Matrícula</th>
+            <th>Grupo</th>
+            <th>Seleccionar</th>
+          </tr>
+        </thead>
+        <tbody id="tablaAlumnos"></tbody>
+      </table>
+
+      <button id="volverClases">← Volver a selección de clase</button>
+    </section>
+
+    <!-- SECCIÓN 3: Calificaciones del alumno -->
+    <section id="seccionCalificaciones" style="display: none;">
+      <h2>Calificaciones de: <span id="nombreAlumno"></span></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Criterio</th>
+            <th>Calificación</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tablaCalificacionesCriterios"></tbody>
+        <tfoot>
+          <tr>
+            <th>Promedio final</th>
+            <th id="promedioFinal" colspan="2">0.0</th>
+          </tr>
+        </tfoot>
+      </table>
+
+      <button id="volverAlumnos">← Volver a alumnos</button>
+    </section>
+
+    <!-- SECCIÓN 4: Edición de calificaciones por criterio -->
+    <section id="seccionEditarCriterio" style="display: none;">
+      <h2>Editar calificaciones del criterio: <span id="criterioActivoNombre"></span></h2>
+
+      <form id="formCalificacion">
+        <input type="text" name="nombre" placeholder="Nombre (ej. Examen 1)" required>
+        <input type="number" name="valor" placeholder="Calificación (0-10)" min="0" max="10" required>
+        <input type="number" name="porcentaje" placeholder="Porcentaje (%)" min="1" max="100" required>
+        <button type="submit">Agregar</button>
+      </form>
+
+      <h3>Calificaciones registradas</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Calificación</th>
+            <th>Porcentaje</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaCalificacionesCriterio"></tbody>
+      </table>
+
+      <button id="volverCriterios">← Volver a criterios del alumno</button>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <script type="module">
+    import { insertarComponentes } from '../scripts/headerFooter.js';
+    import '../scripts/calificaciones.js';
+    insertarComponentes();
+  </script>
+
+  <div id="modalSistema" class="modal oculto">
+    <div class="modal-contenido">
+      <p id="modalMensaje"></p>
+      <button id="cerrarModal">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="modalConfirmacion" class="modal oculto">
+    <div class="modal-contenido">
+      <p id="mensajeConfirmacion"></p>
+      <div style="margin-top: 1rem;">
+        <button id="btnConfirmar">Sí</button>
+        <button id="btnCancelarConfirmacion" style="margin-left: 1rem;">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

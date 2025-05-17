@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Manual de Usuario y Soporte</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+<main class="manual-container">
+    <!-- Navegación lateral -->
+    <nav class="manual-nav">
+      <h3>Secciones</h3>
+        <ul>
+            <li><button onclick="mostrarSeccion('intro')">📘 Introducción</button></li>
+            <li><button onclick="mostrarSeccion('clases')">🏫 Gestión de Clases</button></li>
+            <li><button onclick="mostrarSeccion('alumnos')">👥 Gestión de Alumnos</button></li>
+            <li><button onclick="mostrarSeccion('criterios')">📋 Criterios de Evaluación</button></li>
+            <li><button onclick="mostrarSeccion('calificaciones')">✏️ Calificaciones</button></li>
+            <li><button onclick="mostrarSeccion('reportes')">📄 Reportes</button></li>
+            <li><button onclick="mostrarSeccion('respaldo')">💾 Respaldo</button></li>
+            <li><button onclick="mostrarSeccion('soporte')">🧩 Soporte</button></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido -->
+    <div class="manual-content">
+        <div id="mensajeInicial">
+            <p><strong>📘 Bienvenido al Manual de Usuario</strong></p>
+            <p>Selecciona una sección del menú para leer más detalles sobre cómo utilizar el sistema.</p>
+        </div>
+
+        <section class="detalle-manual oculto" id="seccion-intro">
+            <h3>📘 Introducción</h3>
+            <p>Este sistema permite a profesores organizar y controlar la evaluación de alumnos a través de diferentes módulos.</p>
+            <p>Incluye funcionalidades para gestionar clases, registrar criterios de evaluación, ingresar calificaciones y generar reportes automáticos.</p>
+        </section>
+
+        <section class="detalle-manual oculto" id="seccion-clases">
+            <h3>🏫 Gestión de Clases</h3>
+            <p>Desde esta sección puedes:</p>
+            <ul>
+                <li>Registrar una nueva clase con nombre, código, materia, grupo y horario.</li>
+                <li>Editar o eliminar una clase existente.</li>
+                <li>Buscar clases rápidamente usando una barra de búsqueda.</li>
+            </ul>
+            <p><strong>Vista del usuario:</strong> Tabla con clases, botón "Registrar clase" y botones "Modificar" / "Eliminar".</p>
+            <p><strong>Botones:</strong></p>
+            <ul>
+                <li><code>Registrar clase</code>: abre el formulario para capturar los datos.</li>
+                <li><code>Modificar</code>: carga los datos de la clase en el formulario para editar.</li>
+                <li><code>Eliminar</code>: muestra un modal de confirmación para eliminar la clase.</li>
+            </ul>
+        </section>
+
+        <section class="detalle-manual oculto" id="seccion-alumnos">
+            <h3>👥 Gestión de Alumnos</h3>
+
+            <p>Desde esta sección, puedes administrar los alumnos registrados en cada clase. Los alumnos deben ser agregados directamente a una clase seleccionada previamente.</p>
+
+            <p><strong>¿Qué puede hacer el usuario?</strong></p>
+            <ul>
+                <li>Seleccionar una clase desde una tabla inicial.</li>
+                <li>Registrar nuevos alumnos asignando nombre y matrícula.</li>
+                <li>Evitar duplicación de matrículas: el sistema verifica si ya existe la matrícula dentro de la clase.</li>
+                <li>Editar el nombre o matrícula de un alumno existente.</li>
+                <li>Eliminar un alumno con confirmación mediante modal.</li>
+                <li>Agregar notas opcionales para cada alumno.</li>
+            </ul>
+
+            <p><strong>Vista del usuario:</strong></p>
+            <ul>
+                <li>Tabla con clases registradas.</li>
+                <li>Formulario de registro de alumnos (campos: <em>Nombre</em>, <em>Matrícula</em>).</li>
+                <li>Tabla de alumnos registrados con columnas: Nombre, Matrícula, Notas, Acciones.</li>
+            </ul>
+
+            <p><strong>Botones y funcionalidades:</strong></p>
+            <ul>
+                <li><code>Seleccionar clase</code>: Muestra los alumnos asociados a esa clase.</li>
+                <li><code>Registrar Alumno</code>: Agrega un nuevo alumno al sistema (valida matrícula).</li>
+                <li><code>Modificar</code>: Permite editar los campos del alumno seleccionado.</li>
+                <li><code>Eliminar</code>: Muestra un modal para confirmar la eliminación del alumno.</li>
+            </ul>
+
+            <p><strong>Validaciones automáticas:</strong></p>
+            <ul>
+                <li>No se puede registrar una matrícula repetida en la misma clase.</li>
+                <li>El grupo se asigna automáticamente en función de la clase.</li>
+            </ul>
+        </section>
+
+        <section class="detalle-manual oculto" id="seccion-criterios">
+            <h3>📋 Criterios de Evaluación</h3>
+
+            <p>Esta sección permite definir los criterios de evaluación que serán usados para calificar a los alumnos en una clase específica, por ejemplo: Exámenes, Tareas, Proyectos, etc.</p>
+
+            <p><strong>¿Qué puede hacer el usuario?</strong></p>
+            <ul>
+                <li>Seleccionar una clase para la cual desea gestionar los criterios.</li>
+                <li>Agregar criterios de evaluación con un nombre y porcentaje de peso.</li>
+                <li>Editar criterios existentes (nombre y porcentaje).</li>
+                <li>Eliminar criterios con confirmación mediante modal.</li>
+            </ul>
+
+            <p><strong>Vista del usuario:</strong></p>
+            <ul>
+                <li>Tabla con clases disponibles.</li>
+                <li>Tabla con criterios registrados para la clase seleccionada.</li>
+                <li>Formulario para agregar o editar criterios (campos: <em>Nombre</em>, <em>Porcentaje</em>).</li>
+            </ul>
+
+            <p><strong>Botones y funcionalidades:</strong></p>
+            <ul>
+                <li><code>Seleccionar clase</code>: Accede a los criterios de esa clase.</li>
+                <li><code>Agregar Criterio</code>: Registra un nuevo criterio si el porcentaje total no excede 100%.</li>
+                <li><code>Modificar</code>: Permite editar los valores del criterio seleccionado.</li>
+                <li><code>Eliminar</code>: Elimina el criterio tras una confirmación.</li>
+            </ul>
+
+            <p><strong>Validaciones automáticas:</strong></p>
+            <ul>
+                <li>El porcentaje total de todos los criterios no puede superar el 100%.</li>
+                <li>Si se excede, se muestra un modal de advertencia y no se permite el registro.</li>
+                <li>El sistema mantiene la integridad de los porcentajes al editar criterios.</li>
+            </ul>
+        </section>
+
+        <section class="detalle-manual oculto" id="seccion-calificaciones">
+            <h3>✏️ Calificaciones</h3>
+
+            <p>En esta sección puedes registrar las calificaciones que los alumnos obtienen en cada criterio de evaluación asignado a la clase.</p>
+
+            <p><strong>¿Qué puede hacer el usuario?</strong></p>
+            <ul>
+                <li>Seleccionar una clase para visualizar sus alumnos.</li>
+                <li>Seleccionar un alumno para ver y registrar calificaciones por criterio.</li>
+                <li>Visualizar calificaciones agrupadas por criterio y su promedio parcial.</li>
+                <li>Registrar nuevas calificaciones dentro de un criterio (Ej. Examen 1, Tarea 2, etc.).</li>
+                <li>Editar o eliminar calificaciones específicas.</li>
+            </ul>
+
+            <p><strong>Vista del usuario:</strong></p>
+            <ul>
+                <li>Tabla con clases → tabla de alumnos → tabla de criterios → tabla de calificaciones.</li>
+                <li>Formulario para agregar calificaciones (Nombre, Valor, Porcentaje).</li>
+                <li>Visualización automática del promedio por criterio y promedio final del alumno.</li>
+            </ul>
+
+            <p><strong>Botones y funcionalidades:</strong></p>
+            <ul>
+                <li><code>Seleccionar clase</code>: Muestra los alumnos registrados en esa clase.</li>
+                <li><code>Seleccionar alumno</code>: Muestra la tabla con los criterios y sus promedios.</li>
+                <li><code>Editar</code> (criterio): Abre la tabla de calificaciones específicas de ese criterio.</li>
+                <li><code>Agregar</code>: Permite ingresar nombre, calificación y porcentaje.</li>
+                <li><code>Modificar / Eliminar</code>: Gestiona calificaciones individuales.</li>
+            </ul>
+
+            <p><strong>Validaciones automáticas:</strong></p>
+            <ul>
+                <li>Las calificaciones dentro de un criterio no deben superar el 100%.</li>
+                <li>Si se excede, el sistema redistribuye los porcentajes equitativamente y notifica al usuario con un modal.</li>
+                <li>El sistema calcula automáticamente los promedios por criterio y el promedio final del alumno.</li>
+            </ul>
+        </section>
+        
+        <section class="detalle-manual oculto" id="seccion-reportes">
+            <h3>📄 Generación de Reportes</h3>
+
+            <p>Esta sección permite generar reportes completos y detallados de cada clase, incluyendo criterios, alumnos y sus calificaciones. Los reportes se pueden visualizar y descargar en formato PDF.</p>
+
+            <p><strong>¿Qué puede hacer el usuario?</strong></p>
+            <ul>
+                <li>Buscar y seleccionar una clase desde una lista.</li>
+                <li>Visualizar un resumen completo con:
+                <ul>
+                    <li>Información de la clase (nombre, grupo, materia, horario, código).</li>
+                    <li>Lista de alumnos y sus notas.</li>
+                    <li>Lista de criterios asignados.</li>
+                    <li>Promedios por criterio para cada alumno.</li>
+                    <li>Promedio final de cada alumno.</li>
+                </ul>
+                </li>
+                <li>Descargar el reporte generado en formato PDF.</li>
+            </ul>
+
+            <p><strong>Vista del usuario:</strong></p>
+            <ul>
+                <li>Buscador de clases y tabla de selección.</li>
+                <li>Sección de contenido generada dinámicamente con toda la información de la clase seleccionada.</li>
+                <li>Botón para generar y descargar el PDF del reporte.</li>
+            </ul>
+
+            <p><strong>Botones y funcionalidades:</strong></p>
+            <ul>
+                <li><code>Seleccionar clase</code>: Muestra el contenido del reporte para esa clase.</li>
+                <li><code>📄 Descargar Reporte en PDF</code>: Genera un archivo PDF de la vista actual usando <code>html2pdf.js</code>.</li>
+                <li><code>← Volver</code>: Permite seleccionar otra clase.</li>
+            </ul>
+        </section>
+
+        <section class="detalle-manual oculto" id="seccion-respaldo">
+            <h3>💾 Respaldo e Importación</h3>
+
+            <p>El sistema permite realizar respaldos completos de todos los datos almacenados en el sistema, y posteriormente restaurarlos en otra instalación.</p>
+
+            <p><strong>¿Qué puede hacer el usuario?</strong></p>
+            <ul>
+                <li>Exportar un archivo <code>.json</code> que contiene toda la información almacenada en <code>localStorage</code>.</li>
+                <li>Importar un archivo previamente respaldado para restaurar todos los datos en otro equipo o después de reinstalar la app.</li>
+            </ul>
+
+            <p><strong>Vista del usuario:</strong></p>
+            <ul>
+                <li>Botón <code>📤 Exportar respaldo</code> para descargar el archivo JSON.</li>
+                <li>Botón <code>📥 Importar respaldo</code> para subir el archivo de respaldo.</li>
+            </ul>
+
+            <p><strong>Validaciones automáticas:</strong></p>
+            <ul>
+                <li>El sistema muestra un modal si no se selecciona archivo o si el archivo es inválido.</li>
+                <li>Al importar, se pregunta si deseas sobrescribir los datos existentes.</li>
+                <li>El archivo importado debe tener una estructura válida y generada desde el sistema.</li>
+            </ul>
+        </section>
+
+        <section class="detalle-manual oculto" id="seccion-soporte">
+            <h3>🧩 Soporte</h3>
+
+            <p>En caso de dudas, errores o sugerencias, el sistema cuenta con un canal de soporte centralizado a través de GitHub.</p>
+
+            <p><strong>¿Qué puede hacer el usuario?</strong></p>
+            <ul>
+                <li>Acceder al repositorio del sistema en GitHub.</li>
+                <li>Revisar documentación técnica adicional.</li>
+                <li>Reportar errores o plantear dudas en la sección de "Issues" del repositorio.</li>
+            </ul>
+
+            <p>
+                <a href="https://github.com/tu-repositorio" target="_blank" class="btn-github">🔗 Ir al repositorio de soporte</a>
+            </p>
+        </section>
+
+
+        
+    </div>
+</main>
+
+<div style="padding: 1rem;">
+  <button id="btnDescargarManual">📄 Descargar esta sección como PDF</button>
+</div>
+
+  <div id="footer"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script type="module">
+        import { insertarComponentes } from '../scripts/headerFooter.js';
+        import { mostrarSeccion, mostrarModal, configurarBotonDescarga } from '../scripts/manual.js';
+
+        insertarComponentes();
+        window.mostrarSeccion = mostrarSeccion;
+        configurarBotonDescarga();
+    </script>
+
+
+</body>
+</html>

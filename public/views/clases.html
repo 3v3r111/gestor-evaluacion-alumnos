@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Clases</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="clases">
+    <!-- SECCIÓN 1: Lista de clases -->
+    <section id="vistaListaClases">
+      <h2>Clases Registradas</h2>
+
+      <input type="text" id="buscadorClases" placeholder="Buscar clase por nombre o código...">
+      <button id="btnIrARegistro" style="margin-left: 1rem;">Registrar nueva clase</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Materia</th>
+            <th>Grupo</th>
+            <th>Horario</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaClases"></tbody>
+      </table>
+    </section>
+
+    <!-- SECCIÓN 2: Formulario de registro/modificación -->
+    <section id="vistaFormulario" style="display: none;">
+      <h2 id="tituloFormulario">Registrar Clase</h2>
+      <form id="formClase">
+        <input type="text" name="nombre" placeholder="Nombre de la clase" required>
+        <input type="text" name="codigo" placeholder="Código" required>
+        <input type="text" name="materia" placeholder="Materia" required>
+        <input type="text" name="grupo" placeholder="Grupo" required>
+        <input type="text" name="horario" placeholder="Horario (ej. Lunes 10:00-12:00)" required>
+
+        <button type="submit">Guardar</button>
+        <button type="button" id="cancelarFormulario" style="margin-left: 1rem;">Cancelar</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script type="module">
+    import { insertarComponentes } from '../scripts/headerFooter.js';
+    import '../scripts/clases.js';
+    insertarComponentes();
+  </script>
+
+  <div id="modalConfirmacion" class="modal oculto">
+    <div class="modal-contenido">
+      <p id="mensajeConfirmacion"></p>
+      <div style="margin-top: 1rem;">
+        <button id="btnConfirmar">Sí</button>
+        <button id="btnCancelarConfirmacion" style="margin-left: 1rem;">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

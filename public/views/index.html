@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel del Profesor</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <!-- Header reutilizable -->
+  <div id="header"></div> <!-- FALTA EN TU HTML -->
+
+
+  <main class="menu">
+    <h2>Bienvenido, Profesor</h2>
+    <p>Selecciona una opción para comenzar:</p>
+
+    <div class="opciones">
+      <a href="alumnos.html" class="bloques">👥 Gestión de Alumnos</a>
+      <a href="criterios.html" class="bloques">📋 Criterios de Evaluación</a>
+      <a href="calificaciones.html" class="bloques">✏️ Ingreso de Calificaciones</a>
+      <a href="reportes.html" class="bloques">📈 Reportes de Desempeño</a>
+      <a href="respaldo.html" class="bloques">💾 Respaldo y Transferencia</a>
+      <a href="clases.html" class="bloques">🏫 Gestión de Clases</a>
+      <a href="manual.html" class="bloques">📘 Manual y Soporte</a>
+    </div>
+  </main>
+
+  <!-- Footer reutilizable -->
+  <div id="footer"></div>
+
+  <script type="module">
+    import { insertarComponentes } from '../scripts/headerFooter.js';
+    insertarComponentes();
+  </script>
+</body>
+</html>
