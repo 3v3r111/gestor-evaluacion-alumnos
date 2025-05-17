@@ -26,29 +26,48 @@ export function mostrarModal(mensaje) {
   };
 }
 
-// Descargar como PDF la sección actualmente visible
+// Descargar como PDF el contenido completo del manual
 export function configurarBotonDescarga() {
   const btnDescargar = document.getElementById('btnDescargarManual');
   if (!btnDescargar) return;
 
   btnDescargar.addEventListener('click', () => {
-    const seccionesVisibles = document.querySelectorAll('.detalle-manual:not(.oculto)');
-    if (seccionesVisibles.length === 0) {
-      mostrarModal("⚠️ Primero selecciona una sección para poder descargarla.");
+    const contenido = document.querySelector('.manual-content');
+    if (!contenido) {
+      mostrarModal("⚠️ No se pudo encontrar el contenido del manual.");
       return;
     }
 
-    const seccion = seccionesVisibles[0];
-    const nombre = seccion.id.replace('seccion-', '').toUpperCase();
+    // Mostrar todas las secciones antes de generar PDF
+    const secciones = document.querySelectorAll('.detalle-manual');
+    const ocultas = [];
+
+    secciones.forEach(sec => {
+      if (sec.classList.contains('oculto')) {
+        ocultas.push(sec);
+        sec.classList.remove('oculto');
+      }
+    });
+
+    // Ocultar mensaje de bienvenida si está visible
+    const mensajeInicial = document.getElementById('mensajeInicial');
+    const mensajeVisible = mensajeInicial && mensajeInicial.style.display !== 'none';
+    if (mensajeVisible) mensajeInicial.style.display = 'none';
 
     const opt = {
       margin: 0.5,
-      filename: `Manual_${nombre}.pdf`,
+      filename: `Manual_Usuario_Sistema.pdf`,
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 
-    html2pdf().from(seccion).set(opt).save();
+    html2pdf().from(contenido).set(opt).save().then(() => {
+      // Restaurar estado anterior
+      ocultas.forEach(sec => sec.classList.add('oculto'));
+      if (mensajeVisible) mensajeInicial.style.display = 'block';
+    });
   });
 }
+
+
