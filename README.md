@@ -30,7 +30,7 @@ Sistema de escritorio desarrollado con **Electron** y tecnologías web (HTML, CS
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/gestor-evaluacion-alumnos.git
+git clone https://github.com/3v3r111/gestor-evaluacion-alumnos.git
 cd gestor-evaluacion-alumnos
 ```
 
@@ -51,7 +51,7 @@ npm start
 ## 📦 Instalador para usuarios
 
 Puedes descargar la última versión del instalador desde la pestaña **Releases** del repositorio:
-🔗 [https://github.com/tu-usuario/gestor-evaluacion-alumnos/releases](https://github.com/tu-usuario/gestor-evaluacion-alumnos/releases)
+🔗 [https://github.com/3v3r111/gestor-evaluacion-alumnos/releases](https://github.com/3v3r111/gestor-evaluacion-alumnos/releases)
 
 1. Descarga el archivo `.zip` correspondiente a la versión deseada
 2. Extrae el contenido
